@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Boostrap Stuff -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+<link rel="stylesheet" href="greg.css">
+<link rel="stylesheet" href="../TeamTemplate.css">
+<script src="../Session.js"></script>
+
+<head>
+<meta charset="utf-8"/>
+</head>
+
+<body onload="firstLoad()">
+            <nav class="bar">
+              <ul>
+                <h1 class="left">Look at Our Restaurants!.com</h1>
+                <li><a class="navDropLinks" id="indexPage" href="../Index/Index.html">Home</a>
+                  <div class="dropdown">
+                      <button class="dropbtn" id="navblock">Our Foodie's Pages</button>
+                      <div class="dropdown-content">
+                        <a id="gregPage" class="navDropLinks" href="#">Greg's Page</a>
+                        <a id="omranPage" class="navDropLinks" href="../Omran/Omran_webpage.html">Chef Recipe</a>
+                        <a id="rebeccaPage" class="navDropLinks" href="../Rebecca/RebeccaPage.html">Salki's Noms Cafe</a>
+                      </div>
+                  </div>
+                <div id="displayName" class="show"></div>
+                <div class="right">
+                    <button id="log" class="logout hidden" onclick= "logout()">Logout</button>
+                </div>
+              </ul>
+            </nav>
+
+    <div class="outer-box-frame">
+
+    <div class="container">
+        <div class="col-sm-12">
+            <p class="TopFont text-center">Order Food</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div style="padding-left: 20px; margin-right: 25px;" class="col-sm-2 container">
+            <div class="row" style="padding-left: 20px;">
+                <form>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name</span>
+                        </div>
+
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Deliver Latitude:</span>
+                        </div>
+
+                        <input type="text" class="form-control" id="latDelivid">
+                    </div>
+
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Deliver Longitude:</span>
+                        </div>
+
+                        <input type="text" class="form-control" id="longDelivid">
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12" align="center">
+                    <svg width="100" height="100" onclick="getLocation()">
+                        <circle  class="circleHov" cx="50" cy="50" r="40" stroke="black" stroke-width="4" fill="lightblue" />
+                        <text fill="yellow" font-size="16" font-family="Verdana" x="16" y="55">Location</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-sm-6" align="center">
+                        <div id="resetButton" onclick="resetItems()">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6" align="center">
+                            <svg width="110" height="75">
+                                <text id="total" fill="red" font-size="16" font-family="Verdana" x="0" y="55">Total: $0.00</text>
+                            </svg>
+                    </div>
+            </div>
+        </div>
+
+        <div class="col-sm-10 list-group" style="margin-left: -25px;">
+            <div class="text-center" style="margin-bottom: 10px; margin-right: 60%; margin-left: 40px;">
+                <input class="form-control" id="myInput" type="text" placeholder="Search..." width="50%">
+            </div>
+
+            <script>
+                $(document).ready(function()
+                {
+                  $("#myInput").on("keyup", function()
+                  {
+                    var value = $(this).val().toLowerCase();
+                    
+                    $("#ul1 li").filter(function()
+                    {
+                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                  });
+                });
+            </script>
+
+            <nav>
+                <ul id="ul1" style="padding-right: 40px; padding-left: 40px;">
+                    <li id="lipancakes" class="list-group-item itemList bg-transparent" onclick="checkItem('pancakes')">
+                        <i>Pancakes </i><sub>$ </sub><sub id="subpancakes">9.99</sub>
+                        <p>
+                            <span class="foodPic">
+                                <img src="gregpics/pancakes.jpg" class="rounded">
+                            </span>
+                        </p>
+                    </li>
+                    <li id="libec" class="itemList list-group-item bg-transparent" onclick="checkItem('bec')">
+                        <i>Bacon Egg Cheese </i><sub>$ </sub><sub id="subbec">5.99</sub>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/bec.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="liomlet" class="itemList list-group-item bg-transparent" onclick="checkItem('omlet')">
+                        <i>Omelete </i><sub>$ </sub><sub id="subomlet">9.99</sub>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/omelet.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="litacos" class="itemList list-group-item bg-transparent" onclick="checkItem('tacos')">
+                        <i>Tacos </i><sub>$ </sub><sub id="subtacos">7.99</sub>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/tacos.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="lihamburger" class="itemList list-group-item disabled bg-transparent" onclick="checkItem('hamburger')">
+                        <i><del>Burgers <sub>$ </sub><sub id="subhamburger">12.99</sub></del></i>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/hamburger.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="limilkshake" class="itemList list-group-item bg-transparent" onclick="checkItem('milkshake')">
+                        <i>Milkshakes </i><sub>$ </sub><sub id="submilkshake">4.50</sub>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/milkshake.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="liwings" class="itemList list-group-item bg-transparent" onclick="checkItem('wings')">
+                        <i>Buffalo Wings <sub>$ </sub><sub id="subwings">10</sub></i>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/wings.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="liziti" class="itemList list-group-item disabled bg-transparent" onclick="checkItem('ziti')">
+                        <i><del>Baked Ziti <sub>$ </sub><sub id="subziti">8.99</sub></del></i>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/ziti.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                    <li id="lisoda" class="itemList list-group-item bg-transparent" onclick="checkItem('soda')">
+                        <i>Soda </i><sub>$ </sub><sub id="subsoda">1.25</sub>
+                        <p>
+                                <span class="foodPic">
+                                    <img src="gregpics/soda.jpg" class="rounded">
+                                </span>
+                        </p>
+                    </li>
+                </ul>
+            </nav>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="text-center">Contact Us</p>
+    </div>
+    </div>
+</body>
+
+    <script>
+
+        function firstLoad()
+        {
+            setLinksOthers();
+            
+            document.getElementById("resetButton").innerHTML = drawReset();
+
+            checkCookies();
+        }
+
+
+        function getLocation()
+        {
+            var x = document.getElementById("demo");
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            var lat = document.getElementById("latDelivid");
+            var long = document.getElementById("longDelivid");
+            lat.value = position.coords.latitude;
+            long.value = position.coords.longitude;
+        }
+
+        function resetItems()
+        {
+            var cookieList;
+
+            try{
+                cookieList = JSON.parse(document.cookie);
+
+                for(i = 0; i < cookieList.length; i++)
+                {
+                    document.getElementById("li" + cookieList[i]).classList.remove("active");
+                    document.getElementById("li" + cookieList[i]).classList.add("bg-transparent");
+                }
+            }catch(err)
+            {
+
+            }
+
+            cookieList = [];
+            document.cookie = JSON.stringify(cookieList);
+
+            checkCookies();
+        }
+
+        function checkItem(aItem)
+        {
+            var cookieList;
+
+            try{
+                cookieList = JSON.parse(document.cookie);
+            }catch(err)
+            {
+                cookieList = [];
+                document.cookie = JSON.stringify(cookieList);
+            }
+
+            if(cookieList.length != 0)
+            {
+                var found = false;
+
+                for(i = 0; i < cookieList.length; i++)
+                {
+                    if(cookieList[i] == aItem)
+                    {
+                        document.getElementById("li" + cookieList[i]).classList.remove("active");
+                        document.getElementById("li" + cookieList[i]).classList.add("bg-transparent");
+                        cookieList.splice(i, 1);
+                        found = true;
+                    }
+                }
+
+                if(!found)
+                {
+                    cookieList.push(aItem);
+                }
+            }else{
+                cookieList = [];
+                cookieList.push(aItem);
+            }
+            
+            document.cookie = JSON.stringify(cookieList);
+            checkCookies();
+        }
+
+        function checkCookies()
+        {
+            var cookieList;
+
+            try{
+                cookieList = JSON.parse(document.cookie);
+            }catch(err)
+            {
+                cookieList = [];
+                document.cookie = JSON.stringify(cookieList);
+            }
+
+            var total = 0;
+
+            for(i = 0; i < cookieList.length; i ++)
+            {
+                document.getElementById("li" + cookieList[i]).classList.remove("bg-transparent");
+                document.getElementById("li" + cookieList[i]).classList.add("active");
+
+                total = total + parseFloat(document.getElementById("sub" + cookieList[i]).innerText,10);
+            }
+            
+            document.getElementById("total").innerHTML = "Total: $" + total.toFixed(2);
+        }
+
+        function drawReset()
+        {
+            var drawString = "";
+
+            drawString += '<svg width="75" height="75">';
+            drawString += '<circle  cx="35" cy="40" r="30" stroke="black" stroke-width="4" fill="red" />';
+            drawString += '<text fill="yellow" font-size="17" x="14" y="35">Reset</text>';
+            drawString += '<text fill="yellow" font-size="17" x="14" y="55">Order</text>';
+            drawString += '</svg>';
+
+            return drawString;
+        }
+    </script>
+
+</html>

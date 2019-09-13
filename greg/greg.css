@@ -1,0 +1,91 @@
+.TopFont{
+	font-size: 20pt;
+}
+
+.TopFont:hover{
+	-webkit-animation-name: changeFont;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	
+	animation-name: changeFont;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes changeFont{
+	from {font-size: 20pt;}
+	to {font-size: 100pt;}
+}
+
+@keyframes changeFont{
+	from {font-size: 20pt;}
+	to {font-size: 100pt;}
+}
+
+img{
+	width: auto;
+	height: 15px;
+	-webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+	transition: width 1s, height 1s, transform 1s;
+}
+
+#ul1 {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.itemList{
+	border: 0;
+	height: 50px;
+	display: block;
+	text-align: center;
+	padding: 14px 16px;
+	-webkit-transition: 1s;
+	transition: 1s;
+}
+.foodPic{
+	visibility: hidden;
+}
+
+.itemList:hover .foodPic {
+	visibility: visible;
+}
+
+.itemList:hover .foodPic img{
+	height: 150px;
+	width: auto;
+
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+.itemList:hover{
+	height: 200px;
+}
+
+.circleHov:hover{
+	-webkit-animation-name: changeColor;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	animation: changeColor 1s infinite;
+
+}
+
+@-webkit-keyframes changeColor{
+	from {stroke: aqua;}
+	to {stroke: red; }
+}
+
+@keyframes changeColor{
+	from {stroke: aqua;}
+	to {stroke: red; }
+}
+
+@media (max-width: 600px) {
+	section {
+		-webkit-flex-direction: column;
+		flex-direction: column;
+	}
+}
