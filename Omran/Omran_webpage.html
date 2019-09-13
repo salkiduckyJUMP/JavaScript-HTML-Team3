@@ -1,0 +1,288 @@
+<!-- Press Ctrl+A to select all, then Shift+Alt+F to auto format all HTML -->
+<!-- All HTML documents must start with document type declaration <!DOCTYPE html> -->
+<!DOCTYPE html>
+<!-- The HTML document itself begins with <html> and ends with </html>. -->
+<html>
+
+<head>
+    <!-- HTML Class .stages is used to outline different stages during recipe cooking process.
+    Setting the style of an HTML element, can be done with the style attribute. -->
+    <!-- BootStrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+    <!-- Implements team external CSS file. -->
+    <link rel="stylesheet" type="text/css" href="../TeamTemplate.css">
+    <!-- Implements own external CSS file. -->
+    <link rel="stylesheet" type="text/css" href="Omran_webpage.css">
+    <!-- Implements own external JS file. -->
+    <script type="text/javascript" src="Omran_webpage.js"></script>
+    <script src="../Session.js"></script>
+
+</head>
+
+<!-- The visible part of the HTML document is between <body> and </body>. -->
+
+<body onload="setLinksOthers()">
+<!-- NAV BAR HTML -->
+    <nav class="bar">
+        <ul>
+            <h1 class="left">Look at Our Restaurants!.com</h1>
+            <li><a id="indexPage"  class="navDropLinks" href="../Index/Index.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn" id="navblock">Our Foodie's Pages</button>
+                    <div class="dropdown-content">
+                        <a id="gregPage" class="navDropLinks" href="../greg/greg.html">Greg's Page</a>
+                        <a id="omranPage"  class="navDropLinks" href="#">Chef Recipe</a>
+                        <a id="rebeccaPage"  class="navDropLinks" href="../Rebecca/RebeccaPage.html">
+                            Salki's Noms Cafe</a>
+                    </div>
+                </div>
+            <div id="displayName" class="show"></div>
+            <div class="right">
+                <button id="log" class="logout hidden" onclick= "logout()">Logout</button>
+            </div>
+        </ul>
+    </nav>
+<!-- NAV BAR END -->
+
+    <div class="outer-box-frame">
+        <!-- HTML headings are defined with the <h1> to <h6> tags, <h1> being most important
+            and <h6 being least important. -->
+        <h1>Pork Roast (Just Kidding!)</h1>
+        <!-- HTML paragraphs are defined with the <p> tag. -->
+        <p class="left-margin">Hi! I am Omran Losinno and I am the chef! This page will be showing off
+            how to cook and prepare a delicious fake pork roast. Not fully fake pork, it uses bacon
+            to secure a soft and delicious mixture that will leave you wanting more.</p>
+        <!-- In HTML, images are defined with the <img> tag. The <img> tag is empty, it contains
+            attributes only, and does not have a closing tag. The src attribute specifies the URL
+            (web address) of the image. If a browser cannot find an image, it will display the value
+            of the alt attribute. You can use the style attribute to specify the pixellated width
+            and height of an image. -->
+        <img src="https://i.imgur.com/wbI5iGK.jpg" alt="Roast Pork (Just Kidding! 2/3"
+        width="600" height="1060">
+        <!-- HTML Attribute Link: Hyperlinks are defined with the HTML <a> tag. The href attribute
+            specifies the destination address (https://www.website.com/page/) of the link. -->
+        <p class="left-margin">
+            This dish was originally made in the Shokugeki (Food War) series.
+            <!-- Includes button that uses JS file functions. -->
+            <button id="demo" onclick="RecipeConf()">See source</button>
+        </p>
+        <!-- This is the ingredients list. It is unordered.-->
+        <h2>Required Ingredients</h2>
+        <!-- An unordered list starts with the <ul> tag. -->
+        <ul>
+            <!-- Each listed item starts with the <li> tag. -->
+            <li>6 white potatoes.</li>
+            <li>3 Eringi mushrooms (also known as trumpet, horn, oyster, or brown mushrooms,
+                these have a thick meaty white stem and a small tan cap)</li>
+            <li>1 large white onion, or 2 medium white onions.</li>
+            <li>1 sprig of rosemary.</li>
+            <li>Butter. I suggest 2 tablespoons unsalted (30ml), but you could always use more.</li>
+            <li>2 packs of thick-cut bacon.</li>
+            <li>1 Cup, or 250ml of red wine. We use Pinot Noir as it's preferable for cooking.</li>
+            <li>1/4 Cup, or 60ml of sake. Any sake that is labeled as "sweet" such as mirin should do.</li>
+            <li>2 tbsp(s), or 30ml of soy sauce.</li>
+            <li>1 sprig of parsley or any garnish.</li>
+            <h2>Needed Cookware</h2>
+            <h3>
+                <p>Every cook needs their tools. This recipe will require the following:</p>
+            </h3>
+            <li>A wooden spoon or plastic spatula</li>
+            <li>An oven</li>
+            <li>A stovetop</li>
+            <li>A frying pan</li>
+            <li>A pot</li>
+            <li>A roll of simple cooking string, preferably twine for extra strength</li>
+            <li>A baking sheet with a rack sheet to both hold the fake roast and catch dripping grease</li>
+            <li>A roast fork or two for lifting the roast up and out</li>
+            <li>A chef's knife</li>
+            <li>A big cutting board</li>
+        </ul>
+
+        <!-- Here we use our class to insert stage banners into our cooking recipe to help the reader keep up! -->
+        <div class="jumbotron">
+        <div class="stages stage-1">
+            <h2>Prep Work</h2>
+            <p>Before anything else in cooking, one must perform the preparation needed to cook.
+                Wash your hands, sharpen your knives on your whetstone and let's begin!</p>
+        </div>
+        </div>
+        <ol>
+            <li>
+                <p>Peel the Potatoes. Grab your potatoes and peel most skin off of all six white potatoes.</p>
+            </li>
+            <li>
+                <p>Slice the Potatoes. Rinse the potatoes in water, then cut them into quarters or halves
+                    depending on size.
+                </p>
+            </li>
+            <li>
+                <p>Chop the mushrooms and onions into equally-sized Brunoise (pronounced BROON-wahz)
+                    small 5-6 centimeter (1-2 inch) cubes.</p>
+            </li>
+            <!-- HTML New Element progress can be used to help estimate recipe progress! -->
+            <div class="jumbotron">
+                <div class="stages stage-2">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                        aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width:15%">
+                        15% Complete</div>
+                    </div>
+                <h2>Mash Make</h2>
+                <p>With our needed knife work completed, we may now proceed with creating
+                    the core of our pseudo-roast.
+                </p>
+            </div>
+            </div>
+            <li>
+                <p>Boil the Potatoes. Boil or steam potatoes until soft which should take about 15-20
+                    minutes. DO NOT steam or microwave mushrooms or onions, rather proceed to next step.</p>
+            </li>
+            <li>
+                <p>Pan Fry the Onions and Mushrooms. Prepare a frying pan with a tbsp of butter. Sweat
+                    onions and pan fry mushrooms until carmelized or fully golden.</p>
+            </li>
+            <li>
+                <p>Mash the Potatoes. Mash into small chunks in a large bowl. Do not mash too much, you
+                    want to prevent it from getting frothy in order to shape it properly.</p>
+            </li>
+            <li>
+                <p>Combine the Mushroom and Onion Mixture with the Potato Mash. Mix until the ingredients
+                    are even in the bowl.</p>
+            </li>
+            <li>
+                <p>Pluck the Rosemary. Pick the rosemary off its stem, then set aside.</p>
+            </li>
+            <li>
+                <p>Add the Salt. Sprinkle a bit of salt atop the bowl mixture. Remember that this dish
+                    uses bacon which is already salty.</p>
+            </li>
+            <div class="jumbotron">
+            <div class="stages stage-3">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                    aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width:35%">
+                    35% Complete</div>
+                </div>
+                <h2>Form Roast</h2>
+                <p>This is the hardest part of the recipe: forming and wrapping the fake pork roast.</p>
+            </div>
+            </div>
+            <li>
+                <p>Form the Fake Roast. CAUTION: HOT! Let the mix cool until you can safely
+                    touch it - should take over 5 minutes. Take all of your mix and form it into a log or
+                    football shape.</p>
+            </li>
+
+            <!-- Use HTML Canvas to project an oval shape as a visual example. -->
+            <canvas id="newCanvas" width="450" height="100"></canvas>
+            <script>
+                var c = document.getElementById('newCanvas');
+                var context = c.getContext('2d');
+                var cX = 0;
+                var cY = 25;
+                var radius = 30;
+
+                context.save();
+                context.translate(c.width / 2, c.height / 5);
+                context.scale(2, 1);
+                context.beginPath();
+                context.arc(cX, cY, radius, 0, 2 * Math.PI, false);
+                context.restore();
+                context.fillStyle = '#8c0000';
+                context.fill();
+                context.lineWidth = 2;
+                context.strokeStyle = 'rgb(255, 153, 51)';
+                context.stroke();
+            </script>
+            
+            <li>
+                <p>Wrap the Roast in Bacon. This is the most difficult step. Using both packs of
+                    thick-cut bacon, wrap the roast fully. Try not to leave any gaps, otherwise
+                    the potato mixture will seep out when the bacon tightens. I suggest using a
+                    hand-knit bacon weave to create a makeshift bacon net.</p>
+            </li>
+            <li>
+                <p>Tie the Roast. Tie the roast with the twine. It doesn’t need to be anything fancy,
+                    just wrap it around a few times. Don't tug it too tightly! Intertwine the rosemary
+                    afterward, tucking it between twine.
+                    Rosemary grants your fake roast a delightful fragrance.</p>
+            </li>
+            <li>
+                <p>Bake in the Oven. Bake at 375F or 190C for 40-50 minutes or until bacon is crispy,
+                    turning over once halfway through.
+                    (Tip: crank heat up during last ten minutes to make bacon extra-crispy!)</p>
+            </li>
+            <div class="jumbotron">
+            <div class="stages stage-4">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                    aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                    60% Complete</div>
+                </div>
+                <h2>Create Sauce</h2>
+                <p>Time to make the sauce! Start this step about ten minutes after turning over the
+                    fake roast.</p>
+            </div>
+            </div>
+            <li>
+                <p>Boil the Wine In the Frying Pan. Bring the wine to a boil (~10 minutes) on medium-high
+                    heat in a frying pan. The goal is to reduce it.</p>
+            </li>
+            <li>
+                <p>Add the Butter, Sake, and Soy Sauce to the Wine. Melt the butter into the boiling wine,
+                    then pour the soy sauce and sake into the sauce. Continue to cook for 2-3 minutes.</p>
+            </li>
+            <div class="jumbotron">
+            <div class="stages stage-5">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                    aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                    90% Complete</div>
+                        </div>
+                <h2>Prepare To Serve</h2>
+                <p>Congratulations, you're done cooking! Now to make the meal presentable and serve it.</p>
+            </div>
+            </div>
+            <li>
+                <p>Remove the Twine and the Rosemary. Once baking is done, remove
+                    twine and rosemary - they are not to be eaten.</p>
+            </li>
+            <li>
+                <p>Prepare Fake Roast. Since this is a fake pork roast there isn't a waiting period
+                    to retain juices. Move fake roast atop a big plate or cutting board.
+                    Cut a few slices off initially, then move it onto a big plate.
+                    Slowly pour sauce all over your fake roast.</p>
+            </li>
+            <li>
+                <p>Add the Garnish. Add your chosen garnish atop the dish.
+                    I suggested parsley, but use what you want.</p>
+            </li>
+            <li>
+                <p>Serve! Move your fake roast to sit on a big plate.
+                    Drizzle sauce atop the roast when served.</p>
+            </li>
+        </ol>
+
+        <!-- CSS class gallery enables manipulation of layout, but without flexbox. -->
+        <div class="gallery">
+            <div><img src="Omran_photos/fake_pork_roast_1.jpeg" alt="Roast Pork (Just Kidding! 1/3"
+            width="600" height="1060"></div>
+            <div>Figure 1 - Fake Pork Roast finished baking from the oven.</div>
+        </div>
+        <div class="gallery">
+            <div><img src="Omran_photos/fake_pork_roast_3.jpeg" alt="Roast Pork (Just Kidding! 3/3"
+            width="600" height="1060"></div>
+            <div>Figure 3 - Fake Pork Roast being cut to serve!</div>
+        </div>
+        <!-- The below div is for Matthew's outer-box-frame. -->
+    </div>
+    <img id="smiley" onload="Movement()"
+    src="http://www.i2symbol.com/pictures/emojis/a/f/f/2/aff22723ab391b694c9bcae65ee2da76.png"
+    width="10%" height="10%">
+</body>
+
+</html>

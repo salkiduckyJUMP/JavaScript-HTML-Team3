@@ -1,0 +1,175 @@
+<!-- This the index, the home page for our Restaurant Site -->
+
+<html lang="en-US">
+
+  <!-- Define Meta Data, Call CSS and JS external Documents -->
+  <head>
+    <!-- BootStrap 4 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Meta for Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../TeamTemplate.css">
+    <link rel="stylesheet" type="text/css" href="Index.css">
+    <!-- JavaScript -->
+    <script src="Index.js"></script>
+    <script src="../Session.js"></script>
+  </head>
+
+  <body onload="setLinksIndex();" class="container-fluid">
+    <!-- NAV BAR HTML -->
+      <nav class="bar navbar-nav container-fluid">
+        <ul>
+          <h1 class="left">Look at Our Restaurants!.com</h1>
+          <li class="list-inline"><a id="indexPage" class="navDropLinks" href="#">Home</a>
+            <!-- Dropdown to Foodie Pages Links -->
+            <div class="dropdown">
+                <button class="dropbtn">Our Foodie's Pages</button>
+                <div class="dropdown-content">
+                  <a id="gregPage" class="navDropLinks" href="../greg/greg.html">Greg's Page</a>
+                  <a id="omranPage" class="navDropLinks" href="../Omran/Omran_webpage.html">Chef Recipe</a>
+                  <a id="rebeccaPage" class="navDropLinks" href="../Rebecca/RebeccaPage.html">Salki's Noms Cafe</a>
+                </div>
+            </div>
+            <!-- End Dropdown -->
+            <!-- Display login user name if logged in -->
+            <div id="displayName" class="show"></div>
+            <!-- Login Button Pop Up -->
+            <div class="right"><button id="log" class="login" onclick="document.getElementById('id01').style.display='block'" 
+              style="width:auto;">Login</button>
+            </div>
+            <!-- Logout Button / Login is changed to logout by javascript -->
+          </li>
+            <div id="id01" class="modal">
+                <form class="modal-content animate">
+                  <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <img src="matthew_images/Logo.jpg" alt="Avatar" class="avatar">
+                  </div>
+
+                  <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input id="uID" type="text" placeholder="Enter Username" name="uname" required>
+              
+                    <label for="psw"><b>Password</b></label>
+                    <input id="pID" type="password" placeholder="Enter Password" name="psw" required>
+                    <script src="../Session.js"></script>  
+                    <button id="sb1" class="submit" type="submit" onclick="checkUser()">Login</button>
+                    
+                    <label>
+                      <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                  </div>
+                  <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <span class="psw">Forgot <a href="ForgotPassword.html">password?</a></span>
+                  </div>
+                </form>
+              </div>
+              <!-- Click out of window to close login - Sript -->
+              <script src="Index.js" onload="loginWindow()"></script>
+              <!-- End Login Pop Up -->
+        </ul>
+      </nav>
+    <!-- NAV BAR END -->
+
+    <!-- Create Body Border Wrap -->
+    <div class="outer-box-frame container-fluid">
+    <!-- Opening Site Header -->
+    <h1>Welcome to <span style="color:red">Look at Our Restaurants!</span>.com !!!</h1>
+
+    <!-- Opening Site Sub Headers -->
+    <h2>You're in the right place to discover great food!</h2>
+    <h3>Check out the Navigation bar above to link to our favorite restaurants and recipes!</h3>
+
+    <!-- Feature 2: (abbreviations below) -->
+    <h6>The
+      <span data-toggle="tooltip" data-placement="bottom" title="Look At Our Restaurants">
+        LAOR
+      </span> was founded in 2019.
+    </h6>
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+      });
+      </script>
+
+    <!-- Feature 2: Quotations (short quote below) -->
+    <!-- Feature 2: (cite see below) -->
+    <p>Look at Our Restaurants's! goal is to: <q>Show you where the good food is.</q><cite>- Aristotle</cite></p>
+
+    <!-- Bootstrap Card Group -->
+    <div class="container">
+      <h2>Our Contributors</h2>
+      <div class="card-group cardText">
+        <div class="card bg-dark" style="width:400px">
+          <img class="card-img-top" src="matthew_images/greg.jpg" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">Greg</h4>
+            <p class="card-text">Greg is a beastly full stack developer. He's a front end master
+               and a Blue Moon aficionado...
+            </p>
+            <a href="#" class="btn btn-warning align-self-end" style="position: absolute; bottom: 3%;">
+              See Profile</a>
+          </div>
+        </div>
+        <div class="card bg-primary" style="width:400px">
+          <img class="card-img-top" src="matthew_images/chef.png" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">Omran</h4>
+            <p class="card-text">Also known as Chef. Master of recipies and front end animations...</p>
+            <a href="#" class="btn btn-warning align-self-end" style="position: absolute; bottom: 3%">
+              See Profile</a>
+          </div>
+        </div>
+        <div class="card bg-success" style="width:400px">
+          <img class="card-img-top" src="matthew_images/rebecca.jpg" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">Rebecca</h4>
+            <p class="card-text">"Salki's Noms is a passion project turned functioning cafe, 
+              specializing in some super cute food! I'm excited to keep it growing and bring a 
+              smile to our customer's faces."</p>
+            <a href="#" class="btn btn-warning align-self-end" 
+            style="bottom:3%;">
+              See Profile</a>
+          </div>
+        </div>
+        <div class="card bg-danger" style="width:400px">
+          <img class="card-img-top" src="matthew_images/matthew.png" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">Matthew</h4>
+            <p class="card-text">Foodie and full stack developer.  Likes pizza...</p>
+            <a href="#" class="btn btn-warning align-self-end" 
+              style="position: absolute; bottom:3%;">
+                See Profile</a>
+          </div>
+        </div> 
+      </div>
+    </div>
+
+    <!-- Feature 5: HTML Forms (input form see below) -->
+    <!-- Feature 5:   (radio button see below) -->
+      <!-- <form>
+        <input type="radio" name="food" value="pizza" checked> pizza<br>
+        <input type="radio" name="food" value="burger"> burger<br>
+        <input type="radio" name="food" value="fries"> fries
+      </form> -->
+
+     <!-- Feature 2: (address below) -->
+      <address>
+        <p style="font-style: italic">Look at our Restaurants!<br>
+          &copy; 2019<br>
+          110 Allen Rd.<br>
+          Basking Ridge, NJ<br>
+          USA</p>
+      </address>
+    </div>
+  </body>
+</html>

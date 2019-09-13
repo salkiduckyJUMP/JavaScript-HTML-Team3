@@ -1,0 +1,97 @@
+.inline-center {
+    text-align: center; 
+}
+
+.inline-image-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resize-image{
+	 width: 120px;
+	 height: 120px;
+}
+
+.format-links{
+	/*NOTE: Links are able to override background-color and text-decoration from the team's CSS on every page by using the !important tag at the end */
+	background-color: deeppink !important;
+	text-decoration: none !important;
+	font-size: 120%;
+}
+
+.format-link-color{
+	background-color: deeppink !important;
+	font-size: 120%;
+}
+
+.format-links:hover{
+	color: teal;
+}
+
+.format-link-color:hover{
+	color: teal;
+}
+
+.float-image{
+	float: left;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+/*.video-collapse {
+    display: block !important;
+	margin-left: auto;
+	margin-right: auto;
+}*/
+
+.form-control-inline {
+    min-width: 0;
+    width: auto;
+    display: inline;
+}
+
+.img-thumbnail {
+    background: #0d807c;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-style: groove;
+  border-color: MediumSpringGreen;
+  border-width: 5px;
+
+} 
+
+
+table, th, td {
+   border: 1px solid black;
+}
+
+table {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+th {
+    background-color:rebeccapurple;
+	font-family: Impact, Charcoal, sans-serif;
+	text-shadow: 0 0 10px yellow, 0 0 20px seashell;
+}
+
+td {
+    background-color:skyblue;
+}

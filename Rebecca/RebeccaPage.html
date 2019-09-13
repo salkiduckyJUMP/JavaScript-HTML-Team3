@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="../Session.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="../TeamTemplate.css">
+  <link rel="stylesheet" type="text/css" href="RebeccaPage.css">
+  <script type="text/javascript" src="RebeccaPage.js"></script>
+  <title>Salki's Noms</title>
+</head>
+
+<!-- Runs checkCookie() function when the body is loaded -->
+<body onload="checkCookie()" class="container-fluid">
+  <!-- NAV BAR HTML -->
+  <nav class="bar">
+    <ul>
+      <h1 class="left">Look at Our Restaurants!.com</h1>
+      <li><a id="indexPage" class="navDropLinks" href="../Index/Index.html">Home</a>
+        <div class="dropdown">
+          <button class="dropbtn" id="navblock">Our Foodie's Pages</button>
+          <div class="dropdown-content">
+            <a id="gregPage" class="navDropLinks" href="../greg/greg.html">Greg's Page</a>
+            <a id="omranPage" class="navDropLinks" href="../Omran/Omran_webpage.html">Chef Recipe</a>
+            <a id="rebeccaPage" class="navDropLinks" href="#">Salki's Noms Cafe</a>
+          </div>
+        </div>
+        <div id="displayName" class="show"></div>
+        <div class="right">
+          <button id="log" class="logout hidden" onclick="logout()">Logout</button>
+        </div>
+    </ul>
+  </nav>
+  <!-- NAV BAR END -->
+  <div class="outer-box-frame">
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+
+    <div class="inline-center">
+      <a class="format-links" href="#menu">View Menu</a>
+      <a class="format-link-color" href="#special">View Special Events</a>
+      <a class="format-links" href="#review">Leave a Review</a>
+    </div>
+    <img class="inline-image-center img-thumbnail" src="cafeimages/Salki-Logo.png" alt="Salki Logo">
+    <hr>
+
+    <p class="inline-center">Come on down to Salki's Noms to get some food!</p>
+    <div class="embed-responsive embed-responsive-4by3">
+      <iframe class="inline-image-center embed-responsive-item" width="560" height="315" style="margin-left: 15px;
+	margin-right: 15px;" src="https://www.youtube.com/embed/5FKw7-SC7VI" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>
+    <hr>
+    <h1 id="special" class="inline-center"> Special Events</h1>
+
+    <p> <img class="float-image resize-image rounded-circle" src="cafeimages/catcafe.jpeg" alt="Cat Cafe Promo"> On
+      November 10, consider dropping by to meet some feline friends who will be roaming the cafe all day!
+    </p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+
+    <h1 id="menu" class="inline-center"> Menu </h1>
+    <div class="table-responsive">
+      <table class="table" style="width:100%">
+        <tr>
+          <th class="text-center">Name</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Picture</th>
+          <th class="text-center">Price</th>
+        </tr>
+        <tr>
+          <td>Cat Cookies</td>
+          <td>Cat-shaped cookies with icing topping</td>
+          <td><img class="resize-image inline-image-center rounded" src="cafeimages/cookies.jpg" alt="Cat Cookies"></td>
+          <td>$3.00 for 5</td>
+        </tr>
+        <tr>
+          <td>Rainbow Waffles</td>
+          <td>Stack of seven waffles in good ol' ROYGBIV</td>
+          <td><img class="resize-image inline-image-center rounded" src="cafeimages/rainbowwaffle2.jpg"
+              alt="Bear Waffles"></td>
+          <td>$5.00</td>
+        </tr>
+        <tr>
+          <td>Mini Breakfast</td>
+          <td>For when someone just wants a 'little' breakfast; bacon and eggs</td>
+          <td><img class="resize-image inline-image-center rounded" src="cafeimages/baconeggs.jpg" alt="Mini Breakfast">
+          </td>
+          <td>$3.00</td>
+        </tr>
+        <tr>
+          <td>Bear Sundae</td>
+          <td>Hot fudge sundae with oreo-cookie ears and a chocolate drizzle face</td>
+          <td><img class="resize-image inline-image-center rounded" src="cafeimages/bearsundae.jpg" alt="Bear Sundae">
+          </td>
+          <td>$7.50</td>
+        </tr>
+        <tr>
+          <td>Pusheen Macarons<br><span class="badge badge-pill badge-info">Limited Time Only!</span></td>
+          <td> Delicious macarons inspired by Pusheen!</td>
+          <td><img class="resize-image inline-image-center rounded" src="cafeimages/pusheen.jpg" alt="Pusheen Macarons">
+          </td>
+          <td>$10.00 for 12</td>
+        </tr>
+      </table>
+    </div>
+    <hr>
+    <div class="inline-center"> <a class="format-links" href="https://pusheen.com">Visit Pusheen Here!</a> </div>
+    <hr>
+    <h1 class="inline-center"> Leave a Review! </h1>
+    <p class="inline-center">If you've sampled any of our treats, please leave a review and tell us what you think!</p>
+    <div class="container">
+	<!--Uses bootstrap to validate if the user has entered required data-->
+      <form class="inline-center was-validated" id="review" name="review">
+        <div class="form-group">
+          Nickname:<br>
+		  <!--when clicked, the text input will run the fillInForm() function which will fill in the username stored in the cookie if it exists-->
+          <input onclick="fillInForm()" class="form-control form-control-inline" type="text" name="nickname" required>
+		  <!--Shows valid feedback when input is valid-->
+          <div class="valid-feedback">Valid.</div>
+		  <!--Shows invalid feedback when input is invalid-->
+          <div class="invalid-feedback">Who are you?</div>
+        </div>
+        <div class="form-group">
+          What Did You Try?<br>
+          <input class="form-check-input" type="radio" name="menuitem" value="Cat Cookies" checked> Cat Cookies <br>
+          <input class="form-check-input" type="radio" name="menuitem" value="Rainbow Waffles"> Rainbow Waffles <br>
+          <input class="form-check-input" type="radio" name="menuitem" value="Mini Breakfast"> Mini Breakfast <br>
+          <input class="form-check-input" type="radio" name="menuitem" value="Bear Sundae"> Bear Sundae <br>
+        </div>
+        <div class="form-group">
+          Rating Between 1(terrible) to 5(amazing): <br>
+          <input class="form-control form-control-inline" type="number" name="rating" min="1" max="5" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Let us know how it was!</div>
+        </div>
+        <input type="button" class="btn btn-primary" value="Submit Form" onclick="moreInfo();">
+      </form>
+      <p id="more" class="inline-center" style="font-style: italic"> </p>
+    </div>
+</body>
+
+</html>
